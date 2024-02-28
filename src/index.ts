@@ -17,7 +17,8 @@ import dotenv from 'dotenv';
 import { routes } from './routes';
 import bodyParser from 'body-parser'
 const app:Application=express()
-
+app.use(express.static("public"))
+app.set("view engine","ejs")
 dotenv.config();
 
 app.use(bodyParser.json());

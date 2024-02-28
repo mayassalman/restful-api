@@ -40,6 +40,6 @@ userRouter.get('/user/:id',(req:Request,res:Response)=>{
     }
 })
 userRouter.param("id",(req:Request,res:Response,next,id)=>{
-    console.log(`Looking for user with id=${id}`)
+    console.log(`Looking for user with id=${id} 😍`)
     next();
 })
