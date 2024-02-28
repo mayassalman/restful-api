@@ -31,7 +31,15 @@ userRouter.get('/user/:id',(req:Request,res:Response)=>{
    const user:User= getUser(parseInt(id))
 
    if (!user) {
-    res.status(404).send(`Couldn't find the user with id=${id}`)
-   }
-   res.json(user)
+    res.status(404).end(`Couldn't find the user with id=${id}`)
+    console.log(`Couldn't find the user with id=${id}`)
+   }else{
+
+       console.log("User returned successfully.")
+       res.json(user)
+    }
+})
+userRouter.param("id",(req:Request,res:Response,next,id)=>{
+    console.log(`Looking for user with id=${id}`)
+    next();
 })
